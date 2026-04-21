@@ -8,36 +8,38 @@
 \usepackage{float}
 \usepackage{url}
 \usepackage{authblk}
+\usepackage{newtxtext,newtxmath}
+\usepackage[twoside, top=2.5cm, bottom=2.5cm, outer=2.5cm, inner=3cm, a4paper]{geometry}
+\usepackage{sectsty}
+\usepackage{setspace}
+\usepackage{caption}
 
-\theoremstyle{definition}
-\newenvironment{zgled}{%
-  \begin{mdframed}[linewidth=0.5pt, topline=true, bottomline=true, leftline=true, rightline=true, 
-                  innertopmargin=\baselineskip, innerbottommargin=\baselineskip]%
-  \textbf{Zgled.}%
-}{%
-  \end{mdframed}%
-}
+\sectionfont{\fontsize{14}{16.8}\selectfont\bfseries\raggedright}
+\subsectionfont{\fontsize{12}{14.4}\selectfont\bfseries\raggedright}
+\subsubsectionfont{\fontsize{12}{14.4}\selectfont\bfseries\raggedright}
+
+\captionsetup{font=normalsize, labelfont=bf}
+
 
 \begin{document}
+\setstretch{1.2}
 
-\setlength{\parskip}{1em}
+\setlength{\parskip}{\baselineskip}
 \setlength{\parindent}{0pt}
+\sloppy
 
 \title{Zasebne digitalne valute - primer LIBRA}
 \author{Urh Videčnik, Jure Kraševec}
-\date{\today}
+\date{26. 5. 2026}
 \affil{Fakulteta za matematiko in fiziko, Univerza v Ljubljani}
 \maketitle
 
 \begin{abstract}
-    Namen naše naloge je oceniti učinkovitost ameriške in slovenske javne
-    uprave. Tega smo se lotili s CCR modelom DEA analize. Zaradi oblike modela
-    smo se osredotočili samo na zdravstvo. V teoretičnem
-    delu smo spoznali osnovno idejo DEA analize in kako se uporablja za 
-    izboljšanje učinkovitosti. Izpostavili smo tudi pomankljivosti DEA. 
-    V praktičnem delu smo s pomočjo CCR indeksa in Malmquistovega indeksa
-    ugotovili, da v zdravstvu v Sloveniji in ZDA produktivnost v zadnjih
-    25 letih raste, najbolj produktiven čas pa je bil čas epidemije COVID-19. 
+Zasebne digitalne valute predstavljajo eno izmed pomembnejših inovacij na področju finančnih tehnologij. V seminarski nalogi obravnavamo koncept zasebnih digitalnih valut na primeru projekta Libra, ki se je kasneje preimenoval v Diem. Namen naloge je analizirati osnovne značilnosti takšnih valut, njihovo razlikovanje od klasičnih kriptovalut in digitalnih valut centralnih bank ter pojasniti razloge, zakaj projekt kljub velikim ambicijam ni bil uspešno realiziran.
+
+V teoretičnem delu naloga predstavi razvoj digitalnega denarja, stablecoinov in zasebnih digitalnih valut. V empiričnem delu pa podrobno analiziramo projekt Libra oziroma Diem, njegovo organizacijsko in ekonomsko strukturo ter regulatorne izzive, s katerimi se je soočal. Ugotavljamo, da ključni razlog za neuspeh projekta ni bila tehnologija, temveč predvsem konflikt z regulatorji, centralnimi bankami in vprašanji monetarne suverenosti.
+
+Naloga pokaže, da imajo zasebne digitalne valute velik potencial za izboljšanje plačilnih sistemov, vendar njihova implementacija zahteva jasno regulativno okolje in sodelovanje z obstoječimi finančnimi institucijami.
 \end{abstract}
 
 \newpage
@@ -49,6 +51,161 @@
 
 \newpage
 
+
 \section{Uvod}
 
+Digitalizacija finančnega sistema je v zadnjih letih povzročila razvoj novih oblik denarja in plačilnih sredstev. Poleg tradicionalnih oblik denarja in elektronskega bančništva so se pojavile kriptovalute, stablecoini in zasebne digitalne valute. Med najbolj odmevnimi projekti na tem področju je bil projekt Libra, ki ga je leta 2019 predstavilo podjetje Meta (takrat Facebook).
+
+Projekt Libra je bil zasnovan kot globalna digitalna valuta, katere cilj je bil omogočiti hitra, varna in cenovno ugodna plačila na globalni ravni. Kljub ambiciozni zasnovi je projekt naletel na številne regulatorne ovire, zaradi katerih se je kasneje preimenoval v Diem in bil leta 2022 dokončno opuščen.
+
+\subsection{Namen in raziskovalna vprašanja}
+Namen naloge je analizirati koncept zasebnih digitalnih valut na primeru projekta Libra oziroma Diem ter oceniti ključne razloge za njegov neuspeh. V okviru naloge odgovarjamo na naslednja vprašanja: (i) kako se zasebne digitalne valute razlikujejo od kriptovalut in CBDC, (ii) kakšen je bil ekonomski in organizacijski model projekta Libra, ter (iii) kateri regulatorni in sistemski dejavniki so preprečili njegovo implementacijo.
+
+\section{Digitalni denar in razvoj finančnih tehnologij}
+
+Denar ima v ekonomiji tri osnovne funkcije: služi kot menjalno sredstvo, hranilec vrednosti in obračunska enota. Z razvojem tehnologije se je tudi denar postopoma digitaliziral. Elektronski denar, plačilne kartice in mobilne aplikacije so postali vsakdanji del finančnega sistema.
+
+Razvoj interneta in blockchain tehnologije je omogočil nastanek kriptovalut, ki temeljijo na decentraliziranih sistemih brez centralnega nadzora. Najbolj znan primer je Bitcoin, ki je uvedel koncept decentraliziranega digitalnega denarja.
+
+\subsection{Vloga blockchain tehnologije}
+Blockchain omogoča vodenje porazdeljene knjige transakcij brez centralnega posrednika. Ključne lastnosti so nespremenljivost zapisov, transparentnost in kriptografska varnost. Vendar pa takšni sistemi pogosto trpijo za omejeno skalabilnostjo in večjo porabo energije, kar je spodbudilo razvoj alternativnih pristopov, kot so permissioned omrežja.
+
+\subsection{Centralne banke in digitalni denar (CBDC)}
+Digitalne valute centralnih bank (CBDC) predstavljajo digitalno obliko državnega denarja. Njihov cilj je ohraniti monetarno suverenost in stabilnost plačilnega sistema v času digitalizacije. V primerjavi z zasebnimi digitalnimi valutami imajo CBDC institucionalno podporo in regulatorni okvir.
+
+\section{Stablecoini in zasebne digitalne valute}
+
+Stablecoini so posebna vrsta kriptovalut, katerih vrednost je vezana na stabilna sredstva, kot so fiat valute. Njihov cilj je zmanjšati volatilnost, ki je značilna za klasične kriptovalute.
+
+Zasebne digitalne valute pa predstavljajo nadgradnjo tega koncepta, saj jih izdajajo podjetja ali konzorciji z namenom ustvarjanja globalnih plačilnih sistemov. Takšne valute so pogosto centralizirano upravljane in imajo jasno poslovno strategijo.
+
+\subsection{Prednosti in slabosti stablecoinov}
+Prednosti stablecoinov vključujejo nižjo volatilnost, hitrejše transakcije in nižje stroške. Slabosti pa vključujejo odvisnost od rezerv, tveganja likvidnosti ter potrebo po zaupanju v izdajatelja.
+
+\subsection{Primerjava z drugimi sistemi}
+V primerjavi z Bitcoinom stablecoini nudijo večjo stabilnost, vendar manjšo decentralizacijo. V primerjavi s CBDC pa nimajo enake ravni zaupanja in regulativne zaščite.
+
+\section{Projekt Libra in njegov razvoj}
+
+Projekt Libra je bil predstavljen junija 2019 kot pobuda podjetja Meta. Cilj projekta je bil ustvariti globalno digitalno valuto, ki bi bila dostopna milijardam uporabnikov po svetu.
+
+\subsection{Organizacijska struktura}
+Upravljanje projekta je bilo zaupano organizaciji Libra Association, ki je združevala tehnološka in finančna podjetja. Cilj je bil ustvariti decentralizirano upravljanje, vendar je imel Meta pomemben vpliv.
+
+\subsection{Tehnološka arhitektura}
+Libra je temeljila na permissioned blockchainu, kar pomeni, da so imeli dostop do validacije transakcij le izbrani člani omrežja. To je omogočalo večjo učinkovitost, vendar manjšo decentralizacijo.
+
+\subsection{Ekonomski model}
+Libra naj bi bila podprta z rezervnim skladom sredstev, vključno z državnim dolgom in depoziti. Tak model naj bi zagotavljal stabilnost in zmanjšal volatilnost.
+
+\section{Preobrazba v Diem}
+
+Zaradi močnega regulatornega pritiska se je projekt leta 2020 preimenoval v Diem. Spremenjen je bil tudi poslovni model, saj se je projekt osredotočil na izdajo posameznih stablecoinov, predvsem vezanih na ameriški dolar.
+
+Kljub tem spremembam projekt ni pridobil potrebnih regulatornih dovoljenj, zato je bil leta 2022 ukinjen.
+
+\subsection{Spremembe poslovnega modela}
+Prehod iz Libra v Diem je pomenil tudi prehod iz globalne valute na posamezne valutne stablecoine. Projekt se je osredotočil predvsem na ameriški dolar, kar je bilo bolj sprejemljivo za regulatorje.
+
+\section{Regulatorni izzivi in razlogi za neuspeh}
+
+Glavni razlog za neuspeh projekta so bili regulatorni izzivi. Centralne banke in regulatorji so izrazili zaskrbljenost glede vpliva na monetarno suverenost, finančno stabilnost in varstvo podatkov.
+
+Poseben problem je predstavljala tudi vloga velikega tehnološkega podjetja, ki bi lahko pridobilo prevelik vpliv nad finančnim sistemom.
+
+\section{Razprava}
+
+Projekt Libra oziroma Diem predstavlja pomemben primer, ki kaže, da tehnološke inovacije same po sebi niso dovolj za uspeh v finančnem sistemu.
+
+\subsection{Regulacija kot ključni dejavnik}
+Regulacija je ključna za delovanje finančnih sistemov. Projekt Libra je naletel na odpor, ker ni bil usklajen z obstoječim regulatornim okvirjem.
+
+\subsection{Vloga zaupanja}
+Zaupanje uporabnikov in institucij je bistveno za uspeh digitalnih valut. Zaradi preteklih težav podjetja Meta z varstvom podatkov je bilo to zaupanje omejeno.
+
+\subsection{Prihodnost zasebnih digitalnih valut}
+Zasebne digitalne valute bodo verjetno obstajale tudi v prihodnje, vendar v bolj regulirani obliki in v sodelovanju z bankami.
+
+\section{Tehnične podrobnosti projekta Libra}
+
+Projekt Libra je temeljil na napredni blockchain tehnologiji, ki je bila zasnovana za podporo visoki transakcijski zmogljivosti in nizkim stroškom. V tem poglavju podrobneje analiziramo tehnične aspekte projekta, vključno z arhitekturo, konsenzusnim mehanizmom in varnostnimi funkcijami.
+
+\subsection{Arhitektura sistema}
+Libra blockchain je bil zasnovan kot permissioned sistem, kar pomeni, da so imeli dostop do validacije transakcij le pooblaščeni validatorji. Ti validatorji so bili člani Libra Association, ki so zagotavljali decentralizirano upravljanje. Sistem je uporabljal programski jezik Move, ki je bil posebej razvit za potrebe projekta. Move je omogočal varno izvajanje pametnih pogodb in preprečeval pogoste napake, kot so ponovljive napade ali prekoračitve stanja.
+
+Blockchain je bil strukturiran v več plasti: osnovna plast za transakcije, plast za pametne pogodbe in plast za upravljanje. To je omogočalo modularnost in lažje posodabljanje sistema. Vsaka transakcija je bila kriptografsko podpisana in vključena v blok, ki je bil nato dodan v verigo.
+
+\subsection{Konsenzusni mehanizem}
+Za doseganje soglasja med validatorji je Libra uporabljal modificirano različico Byzantine Fault Tolerance (BFT) algoritma. Ta mehanizem je omogočal hitro potrditev transakcij, s povprečnim časom potrditve manj kot 10 sekund. V primerjavi z proof-of-work sistemi, kot je Bitcoin, je bil ta pristop veliko bolj energetsko učinkovit in skalabilen.
+
+Konsenzus je temeljil na glasovanju validatorjev, kjer je bila potrebna supermajoriteta za sprejetje novega bloka. To je zagotavljalo odpornost proti napadom, hkrati pa ohranjalo visoko zmogljivost. Sistem je bil zasnovan za obdelavo več tisoč transakcij na sekundo, kar je bistveno več kot pri tradicionalnih kriptovalutah.
+
+\subsection{Varnostne funkcije}
+Varnost je bila eden izmed ključnih poudarkov projekta. Libra je uporabljal večplastno varnostno arhitekturo, vključno s kriptografskimi podpisi, šifriranjem podatkov in zaščito pred DDoS napadi. Vsak uporabnik je imel svoj digitalni denarnik, ki je bil zaščiten z večfaktorsko avtentikacijo.
+
+Sistem je vključeval tudi mehanizme za odkrivanje in preprečevanje goljufij, kot so transakcijske omejitve in monitoring sumljivih dejavnosti. Rezervni sklad je bil upravljan s strogimi pravili, ki so zagotavljala, da je vsaka izdana valuta podprta z realnimi sredstvi.
+
+\subsection{Skalabilnost in interoperabilnost}
+Ena izmed glavnih prednosti Libra je bila njegova skalabilnost. Sistem je bil zasnovan za podporo globalnemu obsegu transakcij, z možnostjo integracije z obstoječimi finančnimi sistemi. Interoperabilnost je bila dosežena prek API-jev in standardiziranih protokolov, ki so omogočali povezavo z bankami, plačilnimi sistemi in drugimi blockchaini.
+
+Projekt je predvideval tudi podporo za več valut, kar bi omogočilo enostavno pretvorbo med različnimi fiat valutami. To bi zmanjšalo transakcijske stroške in povečalo učinkovitost mednarodnih plačil.
+
+\section{Primerjava z drugimi projekti}
+
+Čeprav je bil projekt Libra eden izmed najbolj odmevnih, ni bil edini na področju zasebnih digitalnih valut. V tem poglavju primerjamo Libra z drugimi podobnimi iniciativami, kot so JPMorgan's JPM Coin, Ripple's XRP in Facebook's predhodni projekti.
+
+\subsection{JPMorgan's JPM Coin}
+JPMorgan's JPM Coin je bil prvi večji projekt zasebne digitalne valute, ki ga je uvedla banka leta 2019. Za razliko od Libra, ki je bil namenjen širši javnosti, je bil JPM Coin zasnovan za institucionalne uporabnike. Sistem je temeljil na Ethereum blockchainu in je omogočal hitra plačila med podjetji.
+
+Prednosti JPM Coin vključujejo institucionalno zaupanje in regulativno podporo. Slabosti pa so omejena dostopnost in odvisnost od ene banke. V primerjavi z Libra je bil JPM Coin manj ambiciozen, vendar bolj uspešen v omejenem okolju.
+
+\subsection{Ripple's XRP}
+Ripple je podjetje, ki razvija plačilno platformo za mednarodne transakcije. Njihova valuta XRP služi kot most med različnimi valutami in omogoča skoraj instantne prenose. Za razliko od Libra, ki je temeljil na rezervnem skladu, XRP ne potrebuje zunanje podpore.
+
+XRP je bil uspešnejši od Libra, saj je pridobil podporo več bank in je integriran v številne plačilne sisteme. Vendar pa se Ripple sooča z regulatornimi spori glede statusa XRP kot vrednostnega papirja.
+
+\subsection{Druge iniciative}
+Poleg teh projektov obstajajo tudi drugi, kot so Amazon's Amazon Coin ali WeChat Pay v Kitajski. Ti projekti kažejo, da se zasebne digitalne valute razvijajo v različnih smereh, od institucionalnih rešitev do potrošniških aplikacij.
+
+\section{Ekonomski vpliv na globalni finančni sistem}
+
+Projekt Libra bi lahko imel velik vpliv na globalni finančni sistem. V tem poglavju analiziramo potencialne ekonomske učinke, vključno z vplivom na monetarno politiko, finančno vključenost in mednarodne transakcije.
+
+\subsection{Vpliv na monetarno politiko}
+Ena izmed glavnih skrbi regulatorjev je bila, da bi Libra ogrozila monetarno suverenost držav. Če bi valuta postala globalno sprejeta, bi lahko zmanjšala učinkovitost monetarne politike centralnih bank. To bi lahko povzročilo težave pri nadzoru inflacije in gospodarske stabilnosti.
+
+Vendar pa bi Libra lahko tudi izboljšala učinkovitost plačilnih sistemov, kar bi spodbudilo gospodarsko rast. Projekt je predvideval sodelovanje z centralnimi bankami, kar bi lahko zmanjšalo te skrbi.
+
+\subsection{Finančna vključenost}
+Libra je obljubljala izboljšanje finančne vključenosti, zlasti v državah v razvoju. Z nizkimi stroški transakcij in dostopom prek mobilnih telefonov bi lahko omogočila dostop do finančnih storitev milijardam ljudi, ki so trenutno izključeni iz bančnega sistema.
+
+Empirične študije kažejo, da bi takšni sistemi lahko zmanjšali revščino in spodbudili gospodarski razvoj. Vendar pa obstajajo tudi tveganja, kot so finančna nestabilnost in izguba nadzora nad denarnim tokom.
+
+\subsection{Mednarodne transakcije}
+Eden izmed glavnih ciljev Libra je bil izboljšanje mednarodnih plačil. Tradicionalni sistemi, kot SWIFT, so počasni in dragi. Libra bi omogočila skoraj instantne in cenovno ugodne prenose, kar bi spodbudilo globalno trgovino.
+
+To bi lahko imelo pozitivne učinke na gospodarstvo, vendar tudi negativne, kot so povečana finančna nestabilnost in težave pri nadzoru kapitala.
+
+\subsection{Tveganja in izzivi}
+Kljub potencialnim prednostim prinaša Libra tudi številna tveganja. Med njimi so finančna nestabilnost, izguba zasebnosti in povečana koncentracija moči pri velikih tehnoloških podjetjih. Regulatorji so izrazili zaskrbljenost glede možnosti zlorabe sistema za pranje denarja ali financiranje terorizma.
+
+Projekt je pokazal, da je za uspeh zasebnih digitalnih valut potrebno ravnovesje med inovacijo in regulacijo.
+
+\section{Zaključek}
+
+Zasebne digitalne valute imajo velik potencial za prihodnost finančnega sistema, vendar njihova implementacija zahteva skrbno usklajevanje z regulatorji. Primer Libra/Diem jasno kaže, da brez ustrezne regulacije in zaupanja takšni projekti težko uspejo.
+
+\section{Literatura}
+
+Diem (digital currency). Wikipedia.
+
+European Central Bank (2020). Report on stablecoins.
+
+European Central Bank (2021). Digital euro report.
+
+FINMA (2019). Stablecoin guidelines.
+
+Meta (2019). Libra white paper.
+
+International Monetary Fund (2020). Digital money report.
 \end{document}
