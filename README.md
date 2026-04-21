@@ -1,4 +1,4 @@
-# FTI - Zasebne digitalne valute (primer Libra)
+# FTI - Zasebne digitalne valute - primer LIBRA
 
 **AVTORJA:** Jure Kraševec in Urh Videčnik
 
